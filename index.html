@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Alvarez - Roman Heritage Equestrian - Home</title>
+  <link rel="icon" href="Pictures/Signinpage/Logoq.PNG" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    
+    html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Roboto', sans-serif;
+  overflow-y: auto; /* Enable scrolling */
+}
+
+.page-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: #1e1e2f;
+      padding: 10px 20px;
+      color: white;
+      position: relative;
+    }
+
+    .navbar-left {
+      display: flex;
+      align-items: center;
+    }
+
+    .navbar-left img {
+      height: 40px;
+      margin-right: 10px;
+    }
+
+    .navbar-left span {
+      font-size: 1.2rem;
+      font-weight: bold;
+      white-space: nowrap;
+    }
+
+    .navbar-center {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .search-container {
+      position: relative;
+      width: 600px;
+    }
+
+    .search-container input {
+      width: 100%;
+      padding: 10px 15px;
+      border-radius: 20px;
+      border: none;
+      outline: none;
+      font-size: 1rem;
+    }
+
+    .search-button {
+      position: absolute;
+      right: -25px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      color: #888;
+      cursor: pointer;
+      font-size: 1.2rem;
+      padding: 8px;
+      border: none;
+      outline: none;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    .microphone-button {
+      position: absolute;
+      right: -65px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      color: white;
+      cursor: pointer;
+      font-size: 1.2rem;
+      padding: 8px;
+      border: none;
+      outline: none;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    .navbar-right {
+      display: flex;
+      align-items: center;
+    }
+
+    .navbar-right i {
+      margin-right: 5px;
+    }
+
+    .navbar-right a {
+      color: white; /* Set the color to white */
+      text-decoration: none; /* Remove underline */
+      font-size: 1rem; /* Optional: Set a font size to match the design */
+      font-weight: normal; /* Optional: Adjust the font weight */
+    }
+
+    .navbar-right a:hover {
+      color: yellow;
+      text-decoration: none;
+    }
+
+    .sub-navbar {
+      background-color: #2e2e40;
+      padding: 10px 20px;
+      display: flex;
+      gap: 15px;
+    }
+
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropdown a button {
+      background-color: #444;
+      color: white;
+      border: none;
+      padding: 8px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .dropdown a button:hover {
+      background-color: #666;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #3a3a50;
+      min-width: 150px;
+      box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+      z-index: 1000;
+      top: 100%;
+      left: 0;
+      border-radius: 5px;
+      padding: 5px 0;
+    }
+
+    .dropdown-content a {
+      color: white;
+      padding: 8px 15px;
+      text-decoration: none;
+      display: block;
+      font-size: 0.9rem;
+      transition: background-color 0.3s;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #555;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .announcement-bar {
+      background-color: #ffc107;
+      color: #000;
+      text-align: center;
+      font-weight: bold;
+      padding: 10px;
+      text-decoration: none;
+      display: block;
+      position: relative;
+    }
+
+    .close-announcement {
+      background: none;
+      color: #000;
+      border: none;
+      font-size: 1.2rem;
+      font-weight: bold;
+      cursor: pointer;
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      transition: color 0.3s;
+    }
+
+    .close-announcement:hover {
+      color: red;
+    }
+
+    .welcome-section {
+  position: relative;
+  text-align: center;
+  height: calc(100vh - 122px); /* Adjust based on nav + subnav + announcement height */
+  overflow: hidden;
+}
+
+    .welcome-section img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      background-color: #000;
+    }
+
+    .corner-logo {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      z-index: 2;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 4px solid white;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    }
+
+    .corner-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .image-caption {
+  position: absolute;
+  bottom: 35px; /* Moved up to make space for dots */
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.2rem;
+  font-weight: normal;
+  color: #fff;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+  z-index: 2;
+  padding: 8px 16px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+}
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .modal-content {
+      background-color: #fff;
+      padding: 30px 40px;
+      border-radius: 8px;
+      font-size: 1.5rem;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    #dots {
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 2rem;
+      color: red;
+      animation: blink 1s infinite;
+    }
+
+    @keyframes blink {
+      50% {
+        opacity: 0;
+      }
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 1.5rem;
+      color: #333;
+      background: none;
+      border: none;
+      cursor: pointer;
+      transition: color 0.3s;
+    }
+
+    .close-btn:hover {
+      color: red;
+    }
+
+    .slideshow-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.slideshow-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2.5rem;
+  color: white;
+  background: none;
+  border: none;
+  padding: 0 10px;
+  cursor: pointer;
+  z-index: 3;
+}
+
+.left-arrow {
+  left: 20px;
+}
+
+.right-arrow {
+  right: 20px;
+}
+
+
+.dots-container {
+  text-align: center;
+  margin-top: 10px;
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+}
+
+.dot {
+  display: inline-block;
+  height: 12px;
+  width: 12px;
+  margin: 0 5px;
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.dot.active {
+  background-color: white;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(1.02);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.slideshow-fade {
+  animation: fadeIn 0.8s ease;
+}
+
+.navbar-left a {
+  color: white; /* Set the text color to white */
+  text-decoration: none; /* Remove the underline */
+  font-size: 1.2rem; /* Adjust font size */
+}
+
+.navbar-left a:hover {
+  color: yellow;
+}
+.news-section {
+  background-color: #f5f5f5;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.news-section h2 {
+  font-size: 2rem;
+  margin-bottom: 30px;
+  color: #1e1e2f;
+}
+
+.news-items {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.news-card {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 300px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  text-align: left;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.news-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+.news-card h3 {
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.news-card p {
+  font-size: 0.95rem;
+  color: #555;
+  margin: 10px 0;
+}
+
+.news-card a {
+  text-decoration: none;
+  color: #007BFF;
+  font-weight: bold;
+}
+
+.news-card a:hover {
+  color: #0056b3;
+}
+
+.stallion-section {
+  background-color: #f9f9f9;
+  padding: 40px 20px;
+  text-align: center;
+  margin-top: 40px;
+}
+
+.stallion-section h2 {
+  font-size: 2rem;
+  color: #1e1e2f;
+  margin-bottom: 20px;
+}
+
+.stallion-section p {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.stallion-image {
+  width: 100%; /* Make the image fully wide */
+  max-width: 1200px; /* Limit the maximum width */
+  height: 400px; /* Reduce the height to make it shorter */
+  object-fit: cover; /* Ensure the image doesn't stretch and maintains aspect ratio */
+  margin-bottom: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.calendar-link {
+  display: flex;
+  align-items: center;
+  color: white;
+  text-decoration: none;
+  margin-right: 20px;
+  font-size: 1rem;
+}
+
+.calendar-link i {
+  margin-right: 5px; /* space between icon and text */
+}
+
+.calendar-link:hover {
+  color: yellow;
+}
+
+.show-all-button {
+  display: inline-block;
+  background-color: none;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.slide-banner {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(255, 0, 0, 0.8); /* Red background with opacity */
+  color: white;
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  z-index: 2;
+  display: none; /* Hidden by default */
+}
+
+.news-card img {
+  display: block;
+  max-width: 60px;
+  margin: 0 auto 10px auto; /* Center the image */
+  border-radius: 50%;       /* Make the image round */
+  object-fit: cover;        /* Ensure the image fills the circle */
+  height: 60px;             /* Set height to match width for perfect circle */
+
+  </style>
+</head>
+<body>
+    <div class="page-wrapper">
+
+        <!-- Navbar -->
+        <div class="navbar">
+            <div class="navbar-left">
+                <img src="Pictures/Signinpage/Logoq.PNG" alt="Logo" class="navbar-logo">
+                <a href="Dashboard.html"><span>Alvarez - Roman Heritage Equestrian</span></a>
+            </div>
+            <div class="navbar-center">
+                <div class="search-container">
+                    <input type="text" id="searchInput" placeholder="What can we help you find today?">
+                    <button class="search-button" id="searchButton" aria-label="Search">
+                        <i class="fa-solid fa-search"></i>
+                    </button>
+                    <button class="microphone-button" id="micButton" aria-label="Voice search">
+                        <i class="fa-solid fa-microphone"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="navbar-right">
+                <!-- Events -->
+                <a href="Loading.html?type=events" class="calendar-link">
+                    <i class="fa-solid fa-calendar-days"></i>
+                    <span>Events</span>
+                </a>
+
+
+                <i class="fas fa-user"></i>
+                <a href="index.html"><span>Login/Signup</span></a>
+            </div>
+        </div>
+
+        <!-- Sub-navbar -->
+        <div class="sub-navbar">
+            <div class="dropdown"><a href="home.html"><button>Home</button></a></div>
+            <div class="dropdown"><a href="services.html"><button>Services</button></a></div>
+            <div class="dropdown"><a href="products.html"><button>Products</button></a></div>
+            <div class="dropdown"><a href="about.html"><button>About Us</button></a></div>
+            <div class="dropdown"><a href="contact.html"><button>Contact</button></a></div>
+        </div>
+
+        <!-- Announcement Bar -->
+        <a href="HorsesA.html" class="announcement-bar">
+            Announcement: We need your help! We are looking for a new owner for our beloved horses. If you are interested, please contact us for more information. Or click this Announcement to see them.
+            <button class="close-announcement" id="closeAnnouncement">X</button>
+        </a>
+
+        <!-- Welcome Section -->
+        <div class="welcome-section">
+            <div class="slideshow-container">
+                <div class="corner-logo">
+                    <img src="Pictures/Signinpage/Logoq.PNG" alt="Logo">
+                </div>
+                <div id="slide-banner" class="slide-banner">If you want to see more of our training grounds, A map of the track outline, and more pictures of the track, Click this banner!</div>
+                <img id="slideshow-image" src="Pictures/Signinpage/Signinpageimage.jpg" alt="Slideshow Image" loading="lazy">
+                <div class="image-caption" id="slideshow-caption">Welcome to the Alvarez - Roman Heritage Equestrian Website!</div>
+                <div class="dots-container" id="dots-container"></div>
+                <button class="arrow left-arrow" id="prev" aria-label="Previous Slide">&#10094;</button>
+                <button class="arrow right-arrow" id="next" aria-label="Next Slide">&#10095;</button>
+            </div>
+        </div>
+
+        <!-- News Section -->
+        <section class="news-section">
+            <h2>Latest News</h2>
+            <div class="news-items">
+                <article class="news-card">
+                    <img src="Pictures/Signinpage/Logoq.PNG" alt="Logo" style="width: 60px; margin-bottom: 10px;">
+                    <h3>Spring Horse Show Announced</h3>
+                    <p>Join us this May for the annual Spring Horse Show! Riders from across the region will compete in style and grace.</p>
+                    <a href="Loading.html">Read More &raquo;</a>
+                </article>
+                <article class="news-card">
+                    <img src="Pictures/Signinpage/Logoq.PNG" alt="Logo" style="width: 60px; margin-bottom: 10px;">
+                    <h3>See All News</h3>
+                    <p>Catch up on all the latest happenings, events, and announcements from Alvarez - Roman Heritage Equestrian.</p>
+                    <a href="Loading.html" class="show-all-button">Show All News &raquo;</a>
+                </article>
+            </div>
+        </section>
+
+        <!-- Meet the Stallion Section -->
+        <section class="stallion-section">
+            <h2>Stallion of the Farm</h2>
+            <p>Meet the pride of our farm, a majestic and powerful stallion that symbolizes the spirit of Roman Heritage Equestrian.</p>
+            <img src="Pictures/FB_IMG_1745541144460 (1).jpg" alt="Stallion of the Farm" class="stallion-image">
+            <p>Our stallion is not just a magnificent creature; he's a true symbol of strength, grace, and beauty. Come visit him at our farm and experience his majestic presence firsthand.</p>
+        </section>
+
+
+        <!-- Modal for Voice Search -->
+        <div id="talkModal" class="modal">
+            <div class="modal-content">
+                <button class="close-btn" id="closeModal">X</button>
+                <p>Talk to search<span id="dots">...</span></p>
+            </div>
+        </div>
+
+        <!-- Footer Section -->
+        <footer style="background-color: #1e1e2f; color: white; padding: 60px 20px; position: relative; text-align: center; height: 450px;">
+            <!-- Logo at the top center -->
+            <div style="position: absolute; top: 20px; left: 50%; transform: translateX(-50%);">
+                <img src="Pictures/Signinpage/Logoq.PNG" alt="Logo" style="width: 100px; height: 100px; border-radius: 50%; border: 4px solid white;">
+            </div>
+
+            <!-- Sections with titles, lines, and buttons -->
+            <div style="margin-top: 140px; display: flex; justify-content: center; gap: 40px; flex-wrap: wrap;">
+                <!-- Section 1 -->
+                <div style="text-align: left; width: 200px;">
+                    <p style="font-size: 1.2rem; font-weight: bold; margin: 0;">Section 1</p>
+                    <hr style="width: 100%; margin: 5px 0; border: 1px solid white;">
+                    <button style="background: none; color: white; border: 1px solid white; padding: 8px 16px; border-radius: 5px; cursor: pointer; margin-top: 10px;">Button 1</button>
+                    <button style="background: none; color: white; border: 1px solid white; padding: 8px 16px; border-radius: 5px; cursor: pointer; margin-top: 10px;">Button 2</button>
+                </div>
+                <!-- Section 2 -->
+                <div style="text-align: left; width: 200px;">
+                    <p style="font-size: 1.2rem; font-weight: bold; margin: 0;">Section 2</p>
+                    <hr style="width: 100%; margin: 5px 0; border: 1px solid white;">
+                    <button style="background: none; color: white; border: 1px solid white; padding: 8px 16px; border-radius: 5px; cursor: pointer; margin-top: 10px;">Button 1</button>
+                    <button style="background: none; color: white; border: 1px solid white; padding: 8px 16px; border-radius: 5px; cursor: pointer; margin-top: 10px;">Button 2</button>
+                </div>
+                <!-- Section 3 -->
+                <div style="text-align: left; width: 200px;">
+                    <p style="font-size: 1.2rem; font-weight: bold; margin: 0;">Section 3</p>
+                    <hr style="width: 100%; margin: 5px 0; border: 1px solid white;">
+                    <button style="background: none; color: white; border: 1px solid white; padding: 8px 16px; border-radius: 5px; cursor: pointer; margin-top: 10px;">Button 1</button>
+                    <button style="background: none; color: white; border: 1px solid white; padding: 8px 16px; border-radius: 5px; cursor: pointer; margin-top: 10px;">Button 2</button>
+                </div>
+                <!-- Section 4 -->
+                <div style="text-align: left; width: 200px;">
+                    <p style="font-size: 1.2rem; font-weight: bold; margin: 0;">Section 4</p>
+                    <hr style="width: 100%; margin: 5px 0; border: 1px solid white;">
+                    <button style="background: none; color: white; border: 1px solid white; padding: 8px 16px; border-radius: 5px; cursor: pointer; margin-top: 10px;">Button 1</button>
+                    <button style="background: none; color: white; border: 1px solid white; padding: 8px 16px; border-radius: 5px; cursor: pointer; margin-top: 10px;">Button 2</button>
+                </div>
+            </div>
+
+            <!-- Social Links at the bottom right -->
+            <div style="position: absolute; bottom: 10px; right: 20px;">
+                <a href="https://www.facebook.com" target="_blank" style="color: white; margin: 0 10px; font-size: 1.5rem;">
+                    <i class="fab fa-facebook"></i>
+                </a>
+                <a href="https://www.youtube.com/@AlvarezRomanHeritageEquestrian" target="_blank" style="color: white; margin: 0 10px; font-size: 1.5rem;">
+                    <i class="fab fa-youtube"></i>
+                </a>
+            </div>
+
+            <!-- Copyright text at the bottom left -->
+            <div style="position: absolute; bottom: 10px; left: 20px;">
+                <p>&copy; 2025 Alvarez - Roman Heritage Equestrian. All rights reserved.</p>
+            </div>
+        </footer>
+
+        <!-- JavaScript -->
+        <script>
+            const text = "What can we help you find today?";
+            const input = document.getElementById("searchInput");
+            let i = 0;
+
+            function typeEffect() {
+                if (i <= text.length) {
+                    input.setAttribute("placeholder", text.slice(0, i));
+                    i++;
+                    setTimeout(typeEffect, 70);
+                } else {
+                    setTimeout(() => {
+                        i = 0;
+                        typeEffect();
+                    }, 3000);
+                }
+            }
+
+            const micButton = document.getElementById('micButton');
+            const talkModal = document.getElementById('talkModal');
+            const closeModalButton = document.getElementById('closeModal');
+            const searchInput = document.getElementById('searchInput');
+            const searchButton = document.getElementById('searchButton');
+            const closeAnnouncementButton = document.getElementById('closeAnnouncement');
+            const announcementBar = document.querySelector('.announcement-bar');
+            const slideBanner = document.getElementById("slide-banner");
+
+            let recognition;
+
+            if ('webkitSpeechRecognition' in window) {
+                recognition = new webkitSpeechRecognition();
+                recognition.continuous = false;
+                recognition.lang = 'en-US';
+                recognition.interimResults = false;
+
+                micButton.onclick = function () {
+                    talkModal.style.display = 'flex';
+                    recognition.start();
+                };
+
+                recognition.onresult = function (event) {
+                    const transcript = event.results[0][0].transcript;
+                    searchInput.value = transcript;
+                };
+
+                recognition.onerror = function (event) {
+                    console.error('Speech recognition error:', event.error);
+                };
+
+                recognition.onend = function () {
+                    talkModal.style.display = 'none';
+                };
+            } else {
+                micButton.onclick = function () {
+                    alert("Voice recognition is not supported in this browser.");
+                };
+            }
+
+            searchButton.onclick = function () {
+                const query = searchInput.value.trim();
+                if (query) {
+                    window.location.href = `searchResults.html?q=${encodeURIComponent(query)}`;
+                }
+            };
+
+            searchInput.addEventListener('keydown', function (event) {
+                if (event.key === 'Enter') {
+                    const query = searchInput.value.trim();
+                    if (query) {
+                        window.location.href = `searchResults.html?q=${encodeURIComponent(query)}`;
+                    }
+                }
+            });
+
+            closeModalButton.onclick = function () {
+                talkModal.style.display = 'none';
+                if (recognition) recognition.stop();
+            };
+
+            document.addEventListener('keydown', function (event) {
+                if (event.key === 'Escape') {
+                    talkModal.style.display = 'none';
+                    if (recognition) recognition.stop();
+                }
+            });
+
+            closeAnnouncementButton.onclick = function (event) {
+                event.preventDefault();
+                announcementBar.style.display = 'none';
+            };
+
+            const slideshowImages = [
+                { src: "Pictures/Dashboard/WelcomeSlide1.jpg", caption: "Welcome to the Alvarez - Roman Heritage Equestrian Website!" },
+                { src: "Pictures/Dashboard/WelcomeSlide2.jpg", caption: "Meet Reese the stallion of the farm!" },
+                { src: "Pictures/Dashboard/Trackimagestrait.jpg", caption: "Training grounds view" }
+            ];
+
+            let currentIndex = 0;
+            const slideshowImage = document.getElementById("slideshow-image");
+            const slideshowCaption = document.getElementById("slideshow-caption");
+            const prevBtn = document.getElementById("prev");
+            const nextBtn = document.getElementById("next");
+            const dotsContainer = document.getElementById("dots-container");
+
+            function createDots() {
+                dotsContainer.innerHTML = "";
+                slideshowImages.forEach((_, index) => {
+                    const dot = document.createElement("span");
+                    dot.classList.add("dot");
+                    if (index === currentIndex) dot.classList.add("active");
+                    dot.addEventListener("click", () => {
+                        currentIndex = index;
+                        showSlide(currentIndex);
+                    });
+                    dotsContainer.appendChild(dot);
+                });
+            }
+
+            function showSlide(index) {
+                const { src, caption } = slideshowImages[index];
+                slideshowImage.src = src;
+                slideshowCaption.textContent = caption;
+
+                slideshowImage.classList.add("slideshow-fade");
+                slideshowCaption.classList.add("slideshow-fade");
+
+                setTimeout(() => {
+                    slideshowImage.classList.remove("slideshow-fade");
+                    slideshowCaption.classList.remove("slideshow-fade");
+                }, 800);
+
+                // Show clickable banner only on slide 3 (index 2)
+                if (slideBanner) {
+                    if (index === 2) {
+                        slideBanner.style.display = "block";
+                        slideBanner.style.cursor = "pointer";
+                        slideBanner.onclick = () => {
+                            window.location.href = "TrainingGrounds.html";
+                        };
+                    } else {
+                        slideBanner.style.display = "none";
+                        slideBanner.onclick = null;
+                    }
+                }
+
+                // Update dots
+                const allDots = dotsContainer.querySelectorAll(".dot");
+                allDots.forEach(dot => dot.classList.remove("active"));
+                if (allDots[index]) allDots[index].classList.add("active");
+            }
+
+            prevBtn.addEventListener("click", () => {
+                currentIndex = (currentIndex - 1 + slideshowImages.length) % slideshowImages.length;
+                showSlide(currentIndex);
+            });
+
+            nextBtn.addEventListener("click", () => {
+                currentIndex = (currentIndex + 1) % slideshowImages.length;
+                showSlide(currentIndex);
+            });
+
+            setInterval(() => {
+                currentIndex = (currentIndex + 1) % slideshowImages.length;
+                showSlide(currentIndex);
+            }, 7000);
+
+            window.onload = () => {
+                typeEffect();
+                createDots();
+                showSlide(currentIndex);
+            };
+        </script>
+
+
+</body>
+</html>
